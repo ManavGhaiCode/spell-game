@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
 
-app.use('view engine', 'ejs');
+app.set('view engine', 'ejs');
+
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
     res.render('home');
 })
 
 app.listen(3000, () => {
-    console.log('Sever servering at port 3000');
+    console.log('Server servering at port 3000');
 })
