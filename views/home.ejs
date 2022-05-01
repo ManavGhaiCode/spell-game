@@ -6,16 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spell test</title>
 
+    <script>
+        const words = [ " <%= words[0] %> ", " <%= words[1] %> ", " <%= words[2] %> ", " <%= words[3] %> ", " <%= words[4] %> ", " <%= words[5] %> ", " <%= words[6] %> ", " <%= words[7] %> ", " <%= words[8] %> ", " <%= words[9] %> " ];
+    </script>
+
     <link rel="stylesheet" href="/app.css">
 </head>
 <body>
     <span id="score" class="hidden">0</span>
     <main>
-        <span id="current-spelling">0</span>
+        <span id="rw" class="hidden"></span>
+        <span id="current-spelling">Learn this spelling: <%= words[0] %></span>
 
-        <section class="hidden">
-            <input type="text" placeholder="type spelling here">
-        </section>
+        <input type="text" placeholder="type spelling here" class="hidden">
     </main>
+
+    <script src="/app.js"></script>
 </body>
 </html>
