@@ -1,8 +1,10 @@
 const express = require("express");
+const fs = require('fs');
+const path = require('path');
 
 const { getRandSpellings } = require("./utils/getRandSpellings");
 const dictionary = require("./dictionary.json");
-const DB = require("./DB.json");
+const DB = require('./DB.json');
 
 const app = express();
 
@@ -16,7 +18,11 @@ app.get('/', (req, res) => {
 })
 
 app.post('/save-score', (req, res) => {
-    console.log(req.body);
+    DB[`${Date.now()}`] = { score: req.body.points, scorePersentage: req.body.pointsPercentage }
+    console.log(DB);
+ 
+    fs.writeFileSync(path.resolve(__dirname, './DB.json'), JSON.stringify(req.body));
+
     res.send('done');
 })
 
