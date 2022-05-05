@@ -12,7 +12,7 @@
     }
 
     const spellCheak = (el, spelling) => {
-        if (el.value != spelling.trim()) {
+        if (el.value.trim() != spelling.trim()) {
             return false;
         } else {
             return true;
@@ -56,6 +56,8 @@
     const main = async () => {
         for (word in words) {
             await sleep(10);
+
+            input.textContent = '';
 
             currentSpelling.classList.add('hidden');
             input.classList.remove('hidden');
